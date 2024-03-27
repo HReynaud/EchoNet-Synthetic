@@ -1,0 +1,131 @@
+wandb_group: "lvdm"
+output_dir: experiments/lvdm # experiments/lvdm_vpred_64
+
+pretrained_model_name_or_path: null
+vae_path: models/vae
+
+globals:
+    target_fps: 32
+    target_nframes: 64
+    outputs: ["video", "lvef", "image"]
+
+
+datasets:
+    - name: Latent
+      active: true
+      params:
+        root: data/latents/dynamic
+        target_fps: ${globals.target_fps}
+        target_nframes: ${globals.target_nframes}
+        target_resolution: 14 # emb resolution
+        outputs: ${globals.outputs}
+        
+    - name: Latent
+      active: true
+      params:
+        root: data/latents/ped_a4c
+        target_fps: ${globals.target_fps}
+        target_nframes: ${globals.target_nframes}
+        target_resolution: 14 # emb resolution
+        outputs: ${globals.outputs}
+    
+    - name: Latent
+      active: true
+      params:
+        root: data/latents/ped_psax
+        target_fps: ${globals.target_fps}
+        target_nframes: ${globals.target_nframes}
+        target_resolution: 14 # emb resolution
+        outputs: ${globals.outputs}
+
+unet:
+    _class_name: UNetSpatioTemporalConditionModel
+    addition_time_embed_dim: 1
+    block_out_channels: 
+        - 128
+        - 256
+        - 256
+        - 512
+    cross_attention_dim: 1
+    down_block_types: 
+        - CrossAttnDownBlockSpatioTemporal
+        - CrossAttnDownBlockSpatioTemporal
+        - CrossAttnDownBlockSpatioTemporal
+        - DownBlockSpatioTemporal
+    in_channels: 8
+    layers_per_block: 2
+    num_attention_heads: 
+        - 8
+        - 16
+        - 16
+        - 32
+    num_frames: ${globals.target_nframes}
+    out_channels: 4
+    projection_class_embeddings_input_dim: 1
+    sample_size: 14
+    transformer_layers_per_block: 1
+    up_block_types: 
+        - UpBlockSpatioTemporal
+        - CrossAttnUpBlockSpatioTemporal
+        - CrossAttnUpBlockSpatioTemporal
+        - CrossAttnUpBlockSpatioTemporal
+
+noise_scheduler:
+    _class_name: DDPMScheduler
+    num_train_timesteps: 1000
+    beta_start: 0.0001
+    beta_end: 0.02
+    beta_schedule: linear # linear, scaled_linear, or squaredcos_cap_v2
+    variance_type: fixed_small # fixed_small, fixed_small_log, fixed_large, fixed_large_log, learned or learned_range
+    clip_sample: true
+    clip_sample_range: 4.0 # default 1 
+    prediction_type: v_prediction # epsilon, sample, v_prediction
+    thresholding: false # do not touch
+    dynamic_thresholding_ratio: 0.995 # unused
+    sample_max_value: 1.0 # unused
+    timestep_spacing: "leading" #
+    steps_offset: 0 # unused
+
+train_batch_size: 16
+dataloader_num_workers: 16
+max_train_steps: 500000
+
+learning_rate: 1e-4
+lr_warmup_steps: 500
+scale_lr: false
+lr_scheduler: constant
+use_8bit_adam: false
+gradient_accumulation_steps: 1
+
+noise_offset: 0.1
+drop_conditionning: 0.1 # 10 % of the time, the LVEF conditionning is dropped
+
+gradient_checkpointing: false
+use_ema: true
+enable_xformers_memory_efficient_attention: false
+allow_tf32: true
+
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 1e-2
+adam_epsilon: 1e-08
+max_grad_norm: 1.0
+
+logging_dir: logs
+mixed_precision: "fp16" # "no", "fp16", "bf16"
+
+validation_timesteps: 128
+validation_fps: ${globals.target_fps}
+validation_frames: ${globals.target_nframes}
+validation_lvefs: [0.0, 0.4, 0.7, 1.0] # defines the number of samples
+validation_guidance: 1.0
+validation_steps: 1500
+
+report_to: wandb
+checkpointing_steps: 10000 # ~3/hour
+checkpoints_total_limit: 100 # no limit
+resume_from_checkpoint: latest
+tracker_project_name: echosyn
+
+seed: 42
+

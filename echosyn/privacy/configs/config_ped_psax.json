@@ -1,0 +1,29 @@
+{
+	"experiment_description": "reidentification_ped_psax",
+	"resumption": false,
+	"resumption_count": null,
+	"previous_experiment": null,
+
+	"image_path": "data/latents/ped_psax/FileList.csv",
+
+	"siamese_architecture": "ResNet-50",
+	"data_handling": "balanced",
+
+	"num_workers": 16,
+	"pin_memory": true,
+
+	"n_channels": 4,
+	"n_features": 128,
+	"image_size": 14,
+	"loss": "BCEWithLogitsLoss",
+	"optimizer": "Adam",
+	"learning_rate": 0.0001,
+	"batch_size": 128,
+	"max_epochs": 1000,
+	"early_stopping": 50,
+	"transform": "pmone",
+
+	"n_samples_train": 3559,
+	"n_samples_val": 519,
+	"n_samples_test": 448 
+}
