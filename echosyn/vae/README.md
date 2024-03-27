@@ -115,4 +115,26 @@ Note that model might not work in mixed precision mode, which would cause nan va
 
 ## 6. Evaluate the VAE
 
-TBD
+To evaluate the VAE, we reconstruct the extracted image datasets and compare the original images to the reconstructed images. We use the following command to recontruct (encode-decode) the images from the dynamic dataset.
+
+```bash
+python scripts/vae_reconstruct_image_folder.py \
+    -model models/vae \
+    -input data/reference/dynamic \
+    -output samples/reconstructed/dynamic \
+    -batch_size 32
+```
+
+This will save the reconstructed images in the data/reconstructed/dynamic folder. To evaluate the VAE, we use the following command to compute the FID score between the original images and the reconstructed images, with the help of the StyleGAN-V repository.
+
+```bash
+cd external/stylegan-v
+
+python src/scripts/calc_metrics_for_dataset.py \
+    --real_data_path ../../data/reference/dynamic \
+    --fake_data_path ../../samples/reconstructed/dynamic \
+    --mirror 0 --gpus 1 --resolution 112 \
+    --metrics fid50k_full,is50k >> "../../samples/reconstructed/dynamic.txt"
+```
+
+

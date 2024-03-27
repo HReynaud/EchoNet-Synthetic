@@ -218,6 +218,8 @@ def save_as_gif(tensor, filename, fps=30):
 def save_as_img(tensor, filename, ext="jpg"):
     """
     Saves a 4D tensor (nFrames, height, width, channels) as a series of JPG images.
+    OR
+    Saves a 3D tensor (height, width, channels) as a single image.
 
     Parameters:
     - tensor: 4D torch.Tensor. Tensor containing the video frames.
@@ -235,9 +237,12 @@ def save_as_img(tensor, filename, ext="jpg"):
         raise ValueError("The tensor has to be of type uint8")
     
     # Write the frames to a series of JPG files
-    os.makedirs(filename, exist_ok=True)
-    for i in range(np_video.shape[0]):
-        imageio.imwrite(os.path.join(filename, f"{i:04d}.{ext}"), np_video[i], quality=100)
+    if len(np_video.shape) == 3:
+        imageio.imwrite(filename, np_video, quality=100)
+    else:
+        os.makedirs(filename, exist_ok=True)
+        for i in range(np_video.shape[0]):
+            imageio.imwrite(os.path.join(filename, f"{i:04d}.{ext}"), np_video[i], quality=100)
 
 def loadvideo(filename: str, return_fps=False):
     """

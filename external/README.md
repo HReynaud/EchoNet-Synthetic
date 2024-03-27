@@ -1,7 +1,7 @@
 # This folder contains the external libraries that are used in the project.
 
 External libraries can be cloned from the following repositories, into the `external` folder:
-
+<br>
 1. Stable-Diffusion: ```git clone https://github.com/CompVis/stable-diffusion```
 <br> Necessary to train the VAE model.
 <br>

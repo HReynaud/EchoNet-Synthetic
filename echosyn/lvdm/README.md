@@ -68,6 +68,8 @@ The samples are compared to the real samples, which are generated in the [Data p
 Then, to evaluate the synthetic videos, run the following commands:
 
 ```bash
+cd external/stylegan-v
+
 python src/scripts/calc_metrics_for_dataset.py \
     --real_data_path ../../data/reference/dynamic \
     --fake_data_path ../../samples/lvdm_dynamic/jpg \

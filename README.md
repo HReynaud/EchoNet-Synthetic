@@ -9,9 +9,18 @@ EchoNet-Synthetic presents a protocol to generate surrogate privacy-compliant da
 In this repository, we present the code we use for the experiments in the paper. We provide the code to train the models, generate the synthetic data, and evaluate the quality of the synthetic data.
 We also provide all the pre-trained models and release the synthetic datasets we generated.
 
+## Table of contents
+1. [Environment setup](#environment-setup)
+2. [Data preparation](#data-preparation)
+3. [The models](#models)
+4. [Generating EchoNet-Synthetic](#echonet-synthetic)
+5. [Evaluation](#evaluation)
+6. [Results](#results)
+7. [Citation](#citation)
+
 <!-- ## Environment setup -->
-<details open>
-<summary style="font-size: 1.5em; font-weight: bold;">Environment setup<hr></summary>
+<details open id="environment-setup">
+<summary style="font-size: 1.5em; font-weight: bold;" >Environment setup<hr></summary>
 
 First, we need to set up the environment. We use the following command to create a new conda environment with the required dependencies.
 
@@ -38,7 +47,7 @@ How to install the external libraries is explained in the [External libraries](e
 </details>
 
 <!-- ## Data preparation -->
-<details open>
+<details open id="data-preparation">
 <summary style="font-size: 1.5em; font-weight: bold;">Data preparation<hr></summary>
 
 ### ➡ Original datasets
@@ -120,7 +129,7 @@ python scripts/encode_video_dataset.py \
 ### ➡ Validation datasets
 
 To quantitatively evaluate the quality of the generated images and videos, we use the StyleGAN-V repo.
-We cover the evaluation process in the [Evaluation](https://link) section.
+We cover the evaluation process in the [Evaluation](#evaluation) section.
 To enable this evaluation, we need to prepare the validation datasets. We do that with the following command:
 
 ```bash
@@ -140,7 +149,7 @@ Note that the Pediatric datasets do not support 128 frames, preventing the compu
 </details>
 
 <!-- ## The models -->
-<details open>
+<details open id="models">
 <summary style="font-size: 1.5em; font-weight: bold;">The models<hr></summary>
 
 ### The VAE
@@ -153,7 +162,7 @@ You can download the pretrained LIDMs from [here](https://link) or train them yo
 
 ### The Re-Identification models
 
-You can download the pretrained Re-Identification models from [here](https://link) or train them yourself by following the instructions in the [Re-Identification training](echosyn/reid/README.md) section.
+You can download the pretrained Re-Identification models from [here](https://link) or train them yourself by following the instructions in the [Re-Identification training](echosyn/privacy/README.md) section.
 
 ### The LVDM
 
@@ -161,7 +170,7 @@ You can download the pretrained LVDM from [here](https://link) or train it yours
 
 ### Structure
 
-The models are structured as follows:
+The models should be structured as follows:
 ```
 models
 ├── lidm_dynamic
@@ -180,7 +189,7 @@ models
 </details>
 
 <!-- ## Generating EchoNet-Synthetic -->
-<details open>
+<details open id="echonet-synthetic">
 <summary style="font-size: 1.5em; font-weight: bold;">Generating EchoNet-Synthetic<hr></summary>
 
 Now that we have all the necessary models, we can generate the synthetic datasets. The process is the same for all three datasets and involves the following steps:
@@ -246,7 +255,7 @@ They also have a different number of frames per video, which is 128 insted of 19
 </details>
 
 <!-- ## Evaluation -->
-<details open>
+<details open id="evaluation">
 <summary style="font-size: 1.5em; font-weight: bold;">Evaluation<hr></summary>
 
 As the final step, we evaluate the quality of EchoNet-Synthetic videos by training a Ejection Fraction regression model on the synthetic data and evaluating it on the real data.
@@ -295,24 +304,39 @@ echonet video --data_dir ../../datasets/EchoNet-Pediatric/A4C \
         --period 1
 ```
 
+<!-- Improving EchoNet-Synthetic -->
+Here are two tricks that can improve the quality and alignment of the synthetic data with the real data:
+- Re-label the synthetic data with the regression model trained on the real data.
+- Use the Ejection Fraction scores from the real dataset to create the synthetic dataset, not uniformaly distributed ones.
+
 </details>
 
-<!-- Improving EchoNet-Synthetic -->
-Here is a list of tricks that can improve the quality and alignment of the synthetic data with the real data:
-- Re-label the synthetic data with the regression model trained on the real data.
-- Use the Ejection Fraction scores are the real dataset to create the synthetic dataset.
-
-
 <!-- ## Results -->
-<details open>
+<details open id="results">
 <summary style="font-size: 1.5em; font-weight: bold;">Results<hr></summary>
 
-TBD
+<p>Here is a side by side comparison between a real video and a synthetic video generated with EchoNet-Synthetic. We use a frame from the real video and its corresponding ejected fraction score to "reproduce" the real video.</p>
+
+<table style="width:auto; border:1px solid black; text-align:center;">
+    <tr>
+        <th style="padding:10px; border:1px solid black;">Real Video</th>
+        <th style="padding:10px; border:1px solid black;">Reproduction</th>
+    </tr>
+    <tr>
+        <td style="padding:10px; border:1px solid black;"><img src="ressources/real.gif" alt="Real Video"></td>
+        <td style="padding:10px; border:1px solid black;"><img src="ressources/synt.gif" alt="Reproduction"></td>
+    </tr>
+</table>
+
+<p>Here we show a collection of synthetic videos generated with EchoNet-Synthetic. We can see that the quality of the videos is excellent, and show a variety of ejection fraction scores.</p>
+
+![Mosaic](ressources/mosaic.gif)
 
 </details>
 
 <!-- ## Citation -->
 ## Citation
+
 ```
 TBD
 ```
