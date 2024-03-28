@@ -633,29 +633,5 @@ class TensorSet(Dataset):
         return tensor
 
 if __name__ == "__main__":
-
-    from omegaconf import OmegaConf
-    from tqdm import tqdm
-
-    # config = OmegaConf.load("/vol/ideadata/at70emic/projects/TMI23/latecho/videoVAE/configs/train_temporal.yaml")
-    # dataset = instantiate_dataset(config)
-    # dl = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=0)
-    # c = 10
-    # for batch in tqdm(dl):
-    #     a = batch
-    #     c -= 1
-    #     if c == 0:
-    #         break
-    
-    print("Sanity check passed for pixel space datasets")
-
-    config = OmegaConf.load("/vol/ideadata/at70emic/projects/TMI23/latecho/diffusion/configs/train_lvdm.yaml")
-    dataset = instantiate_dataset(config)
-    dl = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=0)
-    c = 10
-    for batch in tqdm(dl):
-        a = batch
-        c -= 1
-        if c == 0:
-            break
+    pass
 
