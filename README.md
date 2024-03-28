@@ -16,15 +16,15 @@ We also provide all the pre-trained models and release the synthetic datasets we
 ## Table of contents
 1. [Environment setup](#environment-setup)
 2. [Data preparation](#data-preparation)
-3. [The models](#models)
-4. [Generating EchoNet-Synthetic](#echonet-synthetic)
+3. [The models](#the-models)
+4. [Generating EchoNet-Synthetic](#generating-echonet-synthetic)
 5. [Evaluation](#evaluation)
 6. [Results](#results)
 7. [Citation](#citation)
 
-<!-- ## Environment setup -->
-<details open id="environment-setup">
-<summary style="font-size: 1.5em; font-weight: bold;" >Environment setup<hr></summary>
+## Environment setup
+<!-- <details open id="environment-setup">
+<summary style="font-size: 1.5em; font-weight: bold;" >Environment setup<hr></summary> -->
 
 First, we need to set up the environment. We use the following command to create a new conda environment with the required dependencies.
 
@@ -48,11 +48,11 @@ We rely on external libraries to:
 How to install the external libraries is explained in the [External libraries](external/README.md) section.
 
 
-</details>
+<!-- </details> -->
 
-<!-- ## Data preparation -->
-<details open id="data-preparation">
-<summary style="font-size: 1.5em; font-weight: bold;">Data preparation<hr></summary>
+## Data preparation
+<!-- <details open id="data-preparation">
+<summary style="font-size: 1.5em; font-weight: bold;">Data preparation<hr></summary> -->
 
 ### ➡ Original datasets
 Download the EchoNet-Dynamic dataset from [here](https://echonet.github.io/dynamic/) and the EchoNet-Pediatric dataset from [here](https://echonet.github.io/pediatric/). The datasets are available for free upon request. Once downloaded, extract the content of the archive in the `datasets` folder. For simplicity and consistency, we structure them like so:
@@ -152,9 +152,9 @@ Note that the Pediatric datasets do not support 128 frames, preventing the compu
 
 </details>
 
-<!-- ## The models -->
-<details open id="models">
-<summary style="font-size: 1.5em; font-weight: bold;">The models<hr></summary>
+## The Models
+<!-- <details open id="models">
+<summary style="font-size: 1.5em; font-weight: bold;">The models<hr></summary> -->
 
 ![Models](ressources/models.jpg)
 
@@ -195,11 +195,11 @@ models
 └── vae
 ```
 
-</details>
+<!-- </details> -->
 
-<!-- ## Generating EchoNet-Synthetic -->
-<details open id="echonet-synthetic">
-<summary style="font-size: 1.5em; font-weight: bold;">Generating EchoNet-Synthetic<hr></summary>
+## Generating EchoNet-Synthetic
+<!-- <details open id="echonet-synthetic">
+<summary style="font-size: 1.5em; font-weight: bold;">Generating EchoNet-Synthetic<hr></summary> -->
 
 Now that we have all the necessary models, we can generate the synthetic datasets. The process is the same for all three datasets and involves the following steps:
 - Generate a collection of latent heart images with the LIDMs (usually 2x the amount of videos we are targetting)
@@ -261,11 +261,11 @@ The A4C dataset should have 3284 videos, with 2580 train, 336 validation and 368
 The PSAX dataset should have 4526 videos, with 3559 train, 448 validation and 519 test videos.
 They also have a different number of frames per video, which is 128 insted of 192.
 
-</details>
+<!-- </details> -->
 
-<!-- ## Evaluation -->
-<details open id="evaluation">
-<summary style="font-size: 1.5em; font-weight: bold;">Evaluation<hr></summary>
+## Evaluation
+<!-- <details open id="evaluation">
+<summary style="font-size: 1.5em; font-weight: bold;">Evaluation<hr></summary> -->
 
 As the final step, we evaluate the quality of EchoNet-Synthetic videos by training a Ejection Fraction regression model on the synthetic data and evaluating it on the real data.
 To do so, we use the EchoNet-Dynamic repository. 
@@ -320,9 +320,9 @@ Here are two tricks that can improve the quality and alignment of the synthetic 
 
 </details>
 
-<!-- ## Results -->
-<details open id="results">
-<summary style="font-size: 1.5em; font-weight: bold;">Results<hr></summary>
+## Results
+<!-- <details open id="results">
+<summary style="font-size: 1.5em; font-weight: bold;">Results<hr></summary> -->
 
 <p>Here is a side by side comparison between a real video and a synthetic video generated with EchoNet-Synthetic. We use a frame from the real video and its corresponding ejected fraction score to "reproduce" the real video.</p>
 
@@ -341,7 +341,7 @@ Here are two tricks that can improve the quality and alignment of the synthetic 
 
 ![Mosaic](ressources/mosaic.gif)
 
-</details>
+<!-- </details> -->
 
 <!-- ## Citation -->
 ## Citation
