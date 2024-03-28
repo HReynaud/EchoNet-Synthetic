@@ -9,6 +9,10 @@ EchoNet-Synthetic presents a protocol to generate surrogate privacy-compliant da
 In this repository, we present the code we use for the experiments in the paper. We provide the code to train the models, generate the synthetic data, and evaluate the quality of the synthetic data.
 We also provide all the pre-trained models and release the synthetic datasets we generated.
 
+![Slim GIF Demo](ressources/mosaic_slim.gif)
+
+*Exemple of synthetic videos generated with EchoNet-Synthetic. First Video is real, others are generated.*
+
 ## Table of contents
 1. [Environment setup](#environment-setup)
 2. [Data preparation](#data-preparation)
@@ -151,6 +155,11 @@ Note that the Pediatric datasets do not support 128 frames, preventing the compu
 <!-- ## The models -->
 <details open id="models">
 <summary style="font-size: 1.5em; font-weight: bold;">The models<hr></summary>
+
+![Models](ressources/models.jpg)
+
+*Our pipeline, using all our models: LIDM, Re-Identification (Privacy), LVDM and VAE*
+
 
 ### The VAE
 
