@@ -121,12 +121,12 @@ def vae_pt_to_vae_diffuser(
     output_path: str,
 ):
     # Only support V1
-    # r = requests.get(
-    #     " https://raw.githubusercontent.com/CompVis/stable-diffusion/main/configs/stable-diffusion/v1-inference.yaml"
-    # )
-    # io_obj = io.BytesIO(r.content)
+    r = requests.get(
+        " https://raw.githubusercontent.com/CompVis/stable-diffusion/main/configs/stable-diffusion/v1-inference.yaml"
+    )
+    io_obj = io.BytesIO(r.content)
 
-    original_config = OmegaConf.load("/vol/ideadata/at70emic/projects/TMI23/data/v1-inference-mod.yaml")
+    original_config = yaml.safe_load(io_obj)
     image_size = 512
     device = "cuda" if torch.cuda.is_available() else "cpu"
     if checkpoint_path.endswith("safetensors"):
