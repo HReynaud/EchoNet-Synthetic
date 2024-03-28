@@ -4,18 +4,17 @@ External libraries can be cloned from the following repositories, into the `exte
 <br>
 1. Stable-Diffusion: ```git clone https://github.com/CompVis/stable-diffusion```
 <br> Necessary to train the VAE model.
-<br>
-<br>
+
+
 2. Taming-Transformers: ```git clone https://github.com/CompVis/taming-transformers```
 <br> Necessary to train the VAE model.
-<br>
-<br>
+
+
 3. StyleGAN-V: ```git clone git@github.com:HReynaud/stylegan-v.git```
 <br> Used to compute all generative metrics (FID, FVD, IS).
-<br>
-<br>
+
+
 4. EchoNet-Dynamic: ```git clone git@github.com:HReynaud/echonet.git```
 <br> Used to evaluate the synthetic data on the Ejection Fraction downstream task.
-<br>
-<br>
+
 
