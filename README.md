@@ -349,5 +349,10 @@ Here are two tricks that can improve the quality and alignment of the synthetic 
 ## Citation
 
 ```
-TBD
+@article{reynaud2024echonet,
+  title={EchoNet-Synthetic: Privacy-preserving Video Generation for Safe Medical Data Sharing},
+  author={Reynaud, Hadrien and Meng, Qingjie and Dombrowski, Mischa and Ghosh, Arijit and Day, Thomas and Gomez, Alberto and Leeson, Paul and Kainz, Bernhard},
+  journal={arXiv preprint arXiv:2406.00808},
+  year={2024}
+}
 ```
