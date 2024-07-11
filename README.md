@@ -1,5 +1,8 @@
 *Model weights and synthetic datasets coming soon !*
 
+**[UPDATE 11/07]**: First Synthetic Dataset available on [HuggingFace](https://huggingface.co/datasets/HReynaud/EchoNet-Synthetic-v1/tree/main) for EchoNet-Dynamic.
+
+
 # EchoNet-Synthetic
 
 ## Introduction
