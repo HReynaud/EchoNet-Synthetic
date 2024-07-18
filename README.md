@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This repository contains the code for the paper [EchoNet-Synthetic: Privacy-preserving Video Generation for Safe Medical Data Sharing](#). Hadrien Reynaud, Qingjie Meng, Mischa Dombrowski, Arijit Ghosh, Alberto Gomez, Paul Leeson and Bernhard Kainz. (2024) MICCAI 24.
+This repository contains the code for the paper [EchoNet-Synthetic: Privacy-preserving Video Generation for Safe Medical Data Sharing](https://arxiv.org/abs/2406.00808). Hadrien Reynaud, Qingjie Meng, Mischa Dombrowski, Arijit Ghosh, Alberto Gomez, Paul Leeson and Bernhard Kainz. (2024) MICCAI 24.
 
 EchoNet-Synthetic presents a protocol to generate surrogate privacy-compliant datasets that are as valuable as their original counterparts to train downstream models (e.g. regression models).
 
