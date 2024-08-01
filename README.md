@@ -14,6 +14,9 @@ EchoNet-Synthetic presents a protocol to generate surrogate privacy-compliant da
 In this repository, we present the code we use for the experiments in the paper. We provide the code to train the models, generate the synthetic data, and evaluate the quality of the synthetic data.
 We also provide all the pre-trained models and release the synthetic datasets we generated.
 
+📜 Read the Paper [on arXiv](https://arxiv.org/abs/2406.00808) <br>
+🤗 Try our interactive demo [on HuggingFace](https://huggingface.co/spaces/HReynaud/EchoNet-Synthetic)
+
 ![Slim GIF Demo](ressources/mosaic_slim.gif)
 
 *Exemple of synthetic videos generated with EchoNet-Synthetic. First Video is real, others are generated.*
