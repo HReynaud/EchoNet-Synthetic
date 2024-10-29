@@ -1,8 +1,3 @@
-*Model weights and synthetic datasets coming soon !*
-
-**[UPDATE 11/07]**: First Synthetic Dataset available on [HuggingFace](https://huggingface.co/datasets/HReynaud/EchoNet-Synthetic-v1/tree/main) for EchoNet-Dynamic.
-
-
 # EchoNet-Synthetic
 
 ## Introduction
@@ -15,7 +10,7 @@ In this repository, we present the code we use for the experiments in the paper.
 We also provide all the pre-trained models and release the synthetic datasets we generated.
 
 📜 Read the Paper [on arXiv](https://arxiv.org/abs/2406.00808) <br>
-🤗 Try our interactive demo [on HuggingFace](https://huggingface.co/spaces/HReynaud/EchoNet-Synthetic)
+🤗 Try our interactive demo [on HuggingFace](https://huggingface.co/spaces/HReynaud/EchoNet-Synthetic), it contains all the generative pipeline inference code and weights !
 
 ![Slim GIF Demo](ressources/mosaic_slim.gif)
 
@@ -113,7 +108,7 @@ rm tmp.txt
 
 ### ➡ Latent Video datasets for LIDM / Privacy / LVDM training
 
-The LIDM, Re-Identification model and LVDM are trained on pre-encoded latent representations of the videos. To encode the videos, we use the image VAE. You can either retrain the VAE or download it from [here](https://link). Once you have the VAE, you can encode the videos with the following command:
+The LIDM, Re-Identification model and LVDM are trained on pre-encoded latent representations of the videos. To encode the videos, we use the image VAE. You can either retrain the VAE or download it from [here](https://huggingface.co/HReynaud/EchoNet-Synthetic/tree/main/vae). Once you have the VAE, you can encode the videos with the following command:
 
 ```bash
 # For the EchoNet-Dynamic dataset
@@ -171,19 +166,19 @@ Note that the Pediatric datasets do not support 128 frames, preventing the compu
 
 ### The VAE
 
-You can download the pretrained VAE from [here](https://link) or train it yourself by following the instructions in the [VAE training](echosyn/vae/README.md) section.
+You can download the pretrained VAE from [here](https://huggingface.co/HReynaud/EchoNet-Synthetic/tree/main/vae) or train it yourself by following the instructions in the [VAE training](echosyn/vae/README.md) section.
 
 ### The LIDM
 
-You can download the pretrained LIDMs from [here](https://link) or train them yourself by following the instructions in the [LIDM training](echosyn/lidm/README.md) section.
+You can download the pretrained LIDMs from [here](https://huggingface.co/HReynaud/EchoNet-Synthetic/tree/main/lidm_dynamic) or train them yourself by following the instructions in the [LIDM training](echosyn/lidm/README.md) section.
 
 ### The Re-Identification models
 
-You can download the pretrained Re-Identification models from [here](https://link) or train them yourself by following the instructions in the [Re-Identification training](echosyn/privacy/README.md) section.
+You can download the pretrained Re-Identification models from [here](https://huggingface.co/HReynaud/EchoNet-Synthetic/tree/main/reidentification_dynamic) or train them yourself by following the instructions in the [Re-Identification training](echosyn/privacy/README.md) section.
 
 ### The LVDM
 
-You can download the pretrained LVDM from [here](https://link) or train it yourself by following the instructions in the [LVDM training](echosyn/lvdm/README.md) section.
+You can download the pretrained LVDM from [here](https://huggingface.co/HReynaud/EchoNet-Synthetic/tree/main/lvdm) or train it yourself by following the instructions in the [LVDM training](echosyn/lvdm/README.md) section.
 
 ### Structure
 
