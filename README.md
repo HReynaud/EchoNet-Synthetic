@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains the code for the paper [EchoNet-Synthetic: Privacy-preserving Video Generation for Safe Medical Data Sharing](https://arxiv.org/abs/2406.00808). Hadrien Reynaud, Qingjie Meng, Mischa Dombrowski, Arijit Ghosh, Alberto Gomez, Paul Leeson and Bernhard Kainz. (2024) MICCAI 24.
+This repository contains the code and model weights for the paper *[EchoNet-Synthetic: Privacy-preserving Video Generation for Safe Medical Data Sharing](https://arxiv.org/abs/2406.00808)*. Hadrien Reynaud, Qingjie Meng, Mischa Dombrowski, Arijit Ghosh, Alberto Gomez, Paul Leeson and Bernhard Kainz. MICCAI 2024.
 
 EchoNet-Synthetic presents a protocol to generate surrogate privacy-compliant datasets that are as valuable as their original counterparts to train downstream models (e.g. regression models).
 
@@ -10,6 +10,7 @@ In this repository, we present the code we use for the experiments in the paper.
 We also provide all the pre-trained models and release the synthetic datasets we generated.
 
 📜 Read the Paper [on arXiv](https://arxiv.org/abs/2406.00808) <br>
+📕 [MICCAI 2024 Proceedings](https://link.springer.com/chapter/10.1007/978-3-031-72104-5_28) <br>
 🤗 Try our interactive demo [on HuggingFace](https://huggingface.co/spaces/HReynaud/EchoNet-Synthetic), it contains all the generative pipeline inference code and weights !
 
 ![Slim GIF Demo](ressources/mosaic_slim.gif)
@@ -350,10 +351,12 @@ Here are two tricks that can improve the quality and alignment of the synthetic 
 ## Citation
 
 ```
-@article{reynaud2024echonet,
-  title={EchoNet-Synthetic: Privacy-preserving Video Generation for Safe Medical Data Sharing},
+@inproceedings{reynaud2024echonet,
+  title={Echonet-synthetic: Privacy-preserving video generation for safe medical data sharing},
   author={Reynaud, Hadrien and Meng, Qingjie and Dombrowski, Mischa and Ghosh, Arijit and Day, Thomas and Gomez, Alberto and Leeson, Paul and Kainz, Bernhard},
-  journal={arXiv preprint arXiv:2406.00808},
-  year={2024}
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={285--295},
+  year={2024},
+  organization={Springer}
 }
 ```
