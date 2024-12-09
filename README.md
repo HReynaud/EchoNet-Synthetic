@@ -7,6 +7,11 @@
 <a href="https://github.com/HReynaud/EchoNet-Synthetic"><img src="https://img.shields.io/github/stars/HReynaud/EchoNet-Synthetic?style=social" alt="Star this repo!" /></a>
 </p>
 
+## Deep-Dive Podcast (AI generated)
+
+
+https://github.com/user-attachments/assets/06d0811b-f2fc-442f-bde4-0885d8dfd319
+
 
 ## Introduction
 
