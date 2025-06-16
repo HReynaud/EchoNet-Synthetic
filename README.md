@@ -361,6 +361,10 @@ Here are two tricks that can improve the quality and alignment of the synthetic 
 
 <!-- </details> -->
 
+# Acknowledgements
+This work was supported by Ultromics Ltd. and the UKRI Centre for Doctoral Training in Artificial Intelligence for Healthcare (EP/S023283/1).
+HPC resources were provided by the Erlangen National High Performance Computing Center (NHR@FAU) of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) under the NHR projects b143dc and b180dc. NHR funding is provided by federal and Bavarian state authorities. NHR@FAU hardware is partially funded by the German Research Foundation (DFG) – 440719683.
+
 <!-- ## Citation -->
 ## Citation
 
